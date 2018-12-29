@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Icarus.Engine.Utilities
+namespace Icarus.Utilities
 {
     /// <summary>
     /// Extends the IEnumerable interface.

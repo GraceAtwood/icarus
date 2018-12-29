@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Icarus.Engine.Utilities
+namespace Icarus.Utilities
 {
     public static class StringUtilities
     {

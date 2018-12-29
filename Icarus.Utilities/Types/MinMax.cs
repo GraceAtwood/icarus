@@ -1,6 +1,6 @@
 using System;
 
-namespace Icarus.Engine.Utilities.Types
+namespace Icarus.Utilities.Types
 {
     /// <summary>
     /// A data structure that allows you to define a constrained, comparable value.  Constraints are inclusive. 

@@ -1,9 +1,10 @@
 using System;
 using Icarus.Engine.Framework;
 using Icarus.Engine.Models.Ships;
+using Icarus.Engine.Presenters.Ships;
 using Icarus.Engine.Views.Ships;
 
-namespace Icarus.Engine.Presenters.Ships
+namespace Icarus.Core.Ships
 {
     public class Ship : IShipPresenter, ISpawnable
     {

@@ -1,4 +1,4 @@
-namespace Icarus.Engine.Utilities
+namespace Icarus.Utilities
 {
     public static class IntegerUtilities
     {

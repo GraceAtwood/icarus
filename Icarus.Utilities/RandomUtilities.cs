@@ -1,7 +1,7 @@
 using System;
 using Random = UnityEngine.Random;
 
-namespace Icarus.Engine.Utilities
+namespace Icarus.Utilities
 {
     public static class RandomUtilities
     {

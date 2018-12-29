@@ -1,6 +1,6 @@
 using System;
 
-namespace Icarus.Engine.Utilities
+namespace Icarus.Utilities
 {
     /// <summary>
     /// Provides methods for interacting with arrays.

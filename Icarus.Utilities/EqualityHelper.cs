@@ -1,6 +1,6 @@
 using System;
 
-namespace Icarus.Engine.Utilities
+namespace Icarus.Utilities
 {
     internal static class EqualityHelper
     {

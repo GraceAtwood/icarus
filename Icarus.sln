@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Icarus.Engine", "Icarus.Engine\Icarus.Engine.csproj", "{92AF21FE-DF63-46F2-ACD9-5F4413513E3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Icarus.Core", "Icarus.Core\Icarus.Core.csproj", "{179A2569-E0EF-49EE-AAAE-85C9420E4CC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Icarus.Utilities", "Icarus.Utilities\Icarus.Utilities.csproj", "{EE96B2D8-5D8B-46A9-A3F7-57238593AAB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Icarus.Game", "Icarus.Game\Icarus.Game.csproj", "{795E6A58-56C6-40B4-AAE9-8F4F9A6D43A6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92AF21FE-DF63-46F2-ACD9-5F4413513E3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92AF21FE-DF63-46F2-ACD9-5F4413513E3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92AF21FE-DF63-46F2-ACD9-5F4413513E3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92AF21FE-DF63-46F2-ACD9-5F4413513E3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{179A2569-E0EF-49EE-AAAE-85C9420E4CC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{179A2569-E0EF-49EE-AAAE-85C9420E4CC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{179A2569-E0EF-49EE-AAAE-85C9420E4CC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{179A2569-E0EF-49EE-AAAE-85C9420E4CC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE96B2D8-5D8B-46A9-A3F7-57238593AAB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE96B2D8-5D8B-46A9-A3F7-57238593AAB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE96B2D8-5D8B-46A9-A3F7-57238593AAB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE96B2D8-5D8B-46A9-A3F7-57238593AAB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{795E6A58-56C6-40B4-AAE9-8F4F9A6D43A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{795E6A58-56C6-40B4-AAE9-8F4F9A6D43A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{795E6A58-56C6-40B4-AAE9-8F4F9A6D43A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{795E6A58-56C6-40B4-AAE9-8F4F9A6D43A6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
