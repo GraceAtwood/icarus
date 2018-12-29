@@ -50,7 +50,10 @@
     <Compile Include="Framework\ISpawnable.cs" />
     <Compile Include="Framework\Logging\ILogger.cs" />
     <Compile Include="Framework\Logging\Log.cs" />
+    <Compile Include="Framework\Logging\RollingFileLogger.cs" />
     <Compile Include="Framework\Logging\UnityLogger.cs" />
+    <Compile Include="Framework\Modding\Blueprint.cs" />
+    <Compile Include="Framework\Modding\BlueprintSourceInfo.cs" />
     <Compile Include="Framework\Modding\Mod.cs" />
     <Compile Include="Framework\Modding\ModInfo.cs" />
     <Compile Include="Framework\Modding\ModLoader.cs" />
@@ -59,6 +62,7 @@
     <Compile Include="Framework\Serialization\Converters\Texture2DPathConverter.cs" />
     <Compile Include="Framework\Serialization\ObjImporter.cs" />
     <Compile Include="Framework\FromTemplateAttribute.cs" />
+    <Compile Include="Framework\Settings\SettingsBase.cs" />
     <Compile Include="Framework\Spawning\Spawn.cs" />
     <Compile Include="ITemplatable.cs" />
     <Compile Include="Models\IModel.cs" />
