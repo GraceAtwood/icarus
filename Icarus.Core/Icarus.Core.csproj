@@ -36,16 +36,29 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Unity.2018.3.0f2\lib\UnityEngine.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ships\Ship.cs" />
+    <Compile Include="Ships\ShipModel.cs" />
+    <Compile Include="Ships\ShipView.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Icarus.Engine\Icarus.Engine.csproj">
       <Project>{92af21fe-df63-46f2-acd9-5f4413513e3e}</Project>
       <Name>Icarus.Engine</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Meshes\destroyer.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ships\destroyer.blueprint">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

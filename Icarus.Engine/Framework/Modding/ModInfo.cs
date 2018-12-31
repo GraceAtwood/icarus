@@ -37,10 +37,5 @@ namespace Icarus.Engine.Framework.Modding
         /// The version of this mod in a "Major.Minor.Build.Revision".  Eg: 1.0.1.4
         /// </summary>
         public Version Version { get; set; } = new Version("1.0.0.0");
-
-        /// <summary>
-        /// Determines if the mod should be loaded or not.
-        /// </summary>
-        public bool IsActive { get; set; } = true;
     }
 }

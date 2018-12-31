@@ -1,18 +1,18 @@
+using System;
 using System.Collections.Generic;
-using System.Dynamic;
 
 namespace Icarus.Engine.Framework.Modding
 {
     public class Blueprint
     {
-        public Dictionary<string, object> Data { get; }
+        public Dictionary<string, object> Data { get; set; }
 
-        public List<BlueprintSourceInfo> SourceInfos { get; }
+        public List<BlueprintSourceInfo> SourceInfos { get; set; }
 
-        public Blueprint(Dictionary<string, object> data, List<BlueprintSourceInfo> sourceInfos)
-        {
-            Data = data;
-            SourceInfos = sourceInfos;
-        }
+        public Func<object> Factory { get; set; }
+
+        public string Id { get; set;  }
+
+        public Type Class { get; set;  }
     }
 }

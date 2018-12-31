@@ -6,12 +6,13 @@ using Icarus.Engine.Views.Ships;
 
 namespace Icarus.Core.Ships
 {
-    public class Ship : IShipPresenter, ISpawnable
+    public class Ship : IShipPresenter, ITemplateSpawnable
     {
         public IShipModel Model { get; set; }
         public IShipView View { get; set; }
+        public Guid InstanceId { get; }
 
-        public Ship(IShipModel model, IShipView view)
+        public Ship(ShipModel model, ShipView view)
         {
             Model = model;
             View = view;
@@ -22,21 +23,19 @@ namespace Icarus.Core.Ships
             View.DirectionalInputReceived += OnDirectionalInputReceived;
         }
 
-        private void OnDirectionalInputReceived(object sender, EventArgs e)
+        public virtual void OnDirectionalInputReceived(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
 
-        private void OnWeaponFired(object sender, EventArgs e)
+        public virtual void OnWeaponFired(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
 
-        private void OnDamageReceived(object sender, EventArgs e)
+        public virtual void OnDamageReceived(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
-
-        public Guid InstanceId { get; }
     }
 }

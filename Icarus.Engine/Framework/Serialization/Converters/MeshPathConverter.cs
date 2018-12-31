@@ -1,4 +1,7 @@
+using System;
+using System.Collections.Generic;
 using System.IO;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace Icarus.Engine.Framework.Serialization.Converters
@@ -8,12 +11,12 @@ namespace Icarus.Engine.Framework.Serialization.Converters
     /// </summary>
     public class MeshPathConverter : PathConverterBase<Mesh>
     {
-        protected override Mesh ReadPath(string path)
+        public override Mesh ReadPath(string path)
         {
-            return ObjImporter.ImportFile(path);
+            return ObjImporter.ImportFile(FindFile(path).FullName);
         }
 
-        public MeshPathConverter(DirectoryInfo modDirectory) : base(modDirectory)
+        public MeshPathConverter(List<DirectoryInfo> searchDirectories) : base(searchDirectories)
         {
         }
     }

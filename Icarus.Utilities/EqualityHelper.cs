@@ -2,7 +2,7 @@ using System;
 
 namespace Icarus.Utilities
 {
-    internal static class EqualityHelper
+    public static class EqualityHelper
     {
         /// <summary>
         /// Compares the references of two IEquatable interfaces, then executes IEquatable.Equals.

@@ -47,7 +47,7 @@
   <ItemGroup>
     <Compile Include="Framework\Exceptions\IcarusException.cs" />
     <Compile Include="Framework\Exceptions\ModIncompatibleException.cs" />
-    <Compile Include="Framework\ISpawnable.cs" />
+    <Compile Include="Framework\ITemplateSpawnable.cs" />
     <Compile Include="Framework\Logging\ILogger.cs" />
     <Compile Include="Framework\Logging\Log.cs" />
     <Compile Include="Framework\Logging\RollingFileLogger.cs" />
@@ -61,28 +61,25 @@
     <Compile Include="Framework\Serialization\Converters\PathConverterBase.cs" />
     <Compile Include="Framework\Serialization\Converters\Texture2DPathConverter.cs" />
     <Compile Include="Framework\Serialization\ObjImporter.cs" />
-    <Compile Include="Framework\FromTemplateAttribute.cs" />
     <Compile Include="Framework\Settings\SettingsBase.cs" />
     <Compile Include="Framework\Spawning\Spawn.cs" />
     <Compile Include="ITemplatable.cs" />
     <Compile Include="Models\IModel.cs" />
     <Compile Include="Models\Ships\IShipModel.cs" />
-    <Compile Include="Models\Ships\ShipModel.cs" />
     <Compile Include="Presenters\IPresenter.cs" />
     <Compile Include="Presenters\Ships\IShipPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tasks\ITask.cs" />
     <Compile Include="Universe\Mapping\Map.cs" />
-    <Compile Include="Utilities\SpawningUtilities.cs" />
     <Compile Include="Views\IView.cs" />
     <Compile Include="Views\Ships\IShipView.cs" />
-    <Compile Include="Views\Ships\ShipView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Universe" />
+    <Folder Include="Utilities" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Icarus.Utilities\Icarus.Utilities.csproj">

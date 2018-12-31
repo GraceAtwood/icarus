@@ -1,0 +1,7 @@
+{
+  "Mesh": "Meshes/destroyer.obj",
+  "BaseArmor": 10,
+  "BaseHealth": 10,
+  "Name": "MY FIRST SHIP!!!",
+  "Class": "Ship"
+}

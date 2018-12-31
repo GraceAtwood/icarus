@@ -1,14 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Dynamic;
 using System.IO;
-using System.Linq;
-using System.Reflection;
-using Icarus.Engine.Framework.Serialization.Converters;
-using Icarus.Engine.Utilities;
 using JetBrains.Annotations;
-using Newtonsoft.Json;
-using UnityEngine;
+using Icarus.Utilities;
 
 namespace Icarus.Engine.Framework.Modding
 {
@@ -17,7 +10,8 @@ namespace Icarus.Engine.Framework.Modding
     /// </summary>
     public class Mod : IEquatable<Mod>
     {
-        [CanBeNull] public ModInfo ModInfo { get; }
+        [NotNull]
+        public ModInfo ModInfo { get; }
 
         /// <summary>
         /// The directory where this mod is found.
@@ -26,34 +20,15 @@ namespace Icarus.Engine.Framework.Modding
         public DirectoryInfo Directory { get; }
 
         /// <summary>
-        /// The assemblies that were loaded in this mod.
-        /// </summary>
-        public List<Assembly> Assemblies { get; }
-
-        /// <summary>
-        /// The templates that were loaded in this mod.
-        /// </summary>
-        public List<ExpandoObject> Templates { get; }
-
-        /// <summary>
         /// The size of the mod in bytes.
         /// </summary>
         public long Size { get; }
 
-        internal Mod([CanBeNull] ModInfo modInfo, [NotNull] DirectoryInfo directoryInfo, long size,
-            List<Assembly> assemblies, List<ExpandoObject> templates)
+        internal Mod([NotNull] ModInfo modInfo, [NotNull] DirectoryInfo directoryInfo, long size)
         {
             ModInfo = modInfo;
             Directory = directoryInfo;
             Size = size;
-            Assemblies = assemblies;
-            Templates = templates;
-        }
-
-        internal Mod([NotNull] DirectoryInfo directoryInfo, long totalBytes, List<Assembly> assemblies,
-            List<ExpandoObject> templates)
-            : this(null, directoryInfo, totalBytes, assemblies, templates)
-        {
         }
 
         /// <inheritdoc />

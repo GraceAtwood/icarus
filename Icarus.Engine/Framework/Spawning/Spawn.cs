@@ -1,41 +1,25 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Reflection;
-using System.Security.Policy;
-using Icarus.Engine.Framework.Exceptions;
 using Icarus.Engine.Framework.Modding;
+using Icarus.Engine.Presenters.Ships;
 
 namespace Icarus.Engine.Framework.Spawning
 {
     public static class Spawner
     {
-        public static void Initialize(List<Mod> loadedMods)
+        private static Dictionary<string, Blueprint> Blueprints { get; set; }
+
+        public static void Initialize(IEnumerable<Blueprint> blueprints)
         {
-            var spawnableTypes = loadedMods
-                .SelectMany(mod => mod.Assemblies.SelectMany(assembly => assembly.GetExportedTypes()))
-                .Where(type => typeof(ISpawnable).IsAssignableFrom(type));
-
-            foreach (var spawnableType in spawnableTypes)
-            {
-                var constructorInfos = spawnableType.GetConstructors();
-                if (constructorInfos.Length != 1)
-                    throw new ModIncompatibleException($"too many or no ctors in type {type.FullName}"); //TODO
-
-                var constructor = constructorInfos.First();
-                var constructorParameters = constructor.GetParameters();
-            
-                var args = new List<Expression>();
-
-                foreach (var constructorParameter in constructorParameters)
-                {
-                    template.FirstOrDefault(x => x.Key.Equals(constructorParameter.Name))
-                }
-            }
+            Blueprints = new Dictionary<string, Blueprint>(blueprints.ToDictionary(x => x.Id, x => x),
+                StringComparer.OrdinalIgnoreCase);
         }
-        
-        public static T Spawn<T>(string templateId) where T : class, ISpawnable
+
+        public static IShipPresenter TestSpawn()
         {
+            return (IShipPresenter) Blueprints.First().Value.Factory.Invoke();
         }
     }
 }

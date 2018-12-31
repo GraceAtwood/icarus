@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using Icarus.Engine.Framework.Logging;
 using Newtonsoft.Json;
@@ -11,50 +13,43 @@ namespace Icarus.Engine.Framework.Serialization.Converters
     /// Loads an object from a file path.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class PathConverterBase<T> : JsonConverter where T : class
+    public abstract class PathConverterBase<T> : JsonConverter<T> where T : class
     {
-        private DirectoryInfo ModDirectory { get; }
+        private List<DirectoryInfo> SearchDirectories { get; }
         
-        protected PathConverterBase(DirectoryInfo modDirectory)
+        protected PathConverterBase(List<DirectoryInfo> searchDirectories)
         {
-            ModDirectory = modDirectory;
+            SearchDirectories = searchDirectories;
         }
 
-        /// <inheritdoc />
-        public override bool CanWrite { get; } = false;
-
-        /// <inheritdoc />
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer) => throw new NotImplementedException();
-
-        /// <inheritdoc />
-        public override bool CanConvert(Type objectType)
+        protected FileInfo FindFile(string path)
         {
-            return typeof(T) == objectType;
+            foreach (var searchDirectory in SearchDirectories)
+            {
+                var candidatePath = Path.Combine(searchDirectory.FullName, path);
+                if (File.Exists(candidatePath))
+                    return new FileInfo(candidatePath);
+            }
+
+            return null;
         }
 
-        /// <inheritdoc />
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override T ReadJson(JsonReader reader, Type objectType, T existingValue, bool hasExistingValue, JsonSerializer serializer)
         {
-            var originalPath = reader.Value as string;
-
-            if (String.IsNullOrWhiteSpace(originalPath))
-                throw new SerializationException($"Failed to load path for {originalPath}");
-
-            var path = Path.Combine(ModDirectory.FullName, originalPath);
-
-            if (!File.Exists(path))
-                throw new SerializationException($"Failed to find a file at {path}");
-
-            Log.Debug($"Loading item at {path}");
-
+            var path = reader.ReadAsString();
             return ReadPath(path);
         }
 
+        public override void WriteJson(JsonWriter writer, T value, JsonSerializer serializer)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
-        /// Reads the path as <typeparamref name="T"/>.  A file is guaranteed to exist at the path.
+        /// Reads the path as <typeparamref name="T"/>.
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        protected abstract T ReadPath(string path);
+        public abstract T ReadPath(string path);
     }
 }
