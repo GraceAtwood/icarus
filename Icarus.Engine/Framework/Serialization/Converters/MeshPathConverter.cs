@@ -9,12 +9,9 @@ namespace Icarus.Engine.Framework.Serialization.Converters
     /// <summary>
     /// Loads a mesh from a file path.
     /// </summary>
-    public class MeshPathConverter : PathConverterBase<Mesh>
+    public class MeshPathConverter : CacheablePathConverterBase<Mesh>
     {
-        public override Mesh ReadPath(string path)
-        {
-            return ObjImporter.ImportFile(FindFile(path).FullName);
-        }
+        protected override Mesh Load(FileInfo file) => ObjImporter.ImportFile(file.FullName);
 
         public MeshPathConverter(List<DirectoryInfo> searchDirectories) : base(searchDirectories)
         {

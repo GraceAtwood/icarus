@@ -141,7 +141,7 @@ namespace Icarus.Engine.Framework.Modding
                 }
             }
         }
-
+        
         private static string GetDefaultBlueprintId(Mod mod, FileInfo blueprintFile) =>
             $"{mod.ModInfo.Name}_{blueprintFile.Name}";
 
@@ -191,11 +191,11 @@ namespace Icarus.Engine.Framework.Modding
                     if (parameterInfo.ParameterType == typeof(Mesh))
                         parameters.Add(() =>
                             new MeshPathConverter(blueprint.SourceInfos.Select(x => x.SourceMod.Directory).Reverse()
-                                .ToList()).ReadPath(value as string));
+                                .ToList()).LoadWithCache(value as string));
                     else if (parameterInfo.ParameterType == typeof(Texture2D))
                         parameters.Add(() =>
                             new Texture2DPathConverter(blueprint.SourceInfos.Select(x => x.SourceMod.Directory)
-                                .Reverse().ToList()).ReadPath(value as string));
+                                .Reverse().ToList()).LoadWithCache(value as string));
                     else
                         parameters.Add(() => value);
                 }

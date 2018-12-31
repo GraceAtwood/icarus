@@ -10,13 +10,13 @@ namespace Icarus.Engine.Framework.Serialization.Converters
     /// <summary>
     /// Loads a texture2d from a file path.
     /// </summary>
-    internal class Texture2DPathConverter : PathConverterBase<Texture2D>
+    internal class Texture2DPathConverter : CacheablePathConverterBase<Texture2D>
     {
         /// <inheritdoc />
-        public override Texture2D ReadPath(string path)
+        protected override Texture2D Load(FileInfo file)
         {
             var tex = new Texture2D(2, 2);
-            tex.LoadImage(File.ReadAllBytes(FindFile(path).FullName));
+            tex.LoadImage(File.ReadAllBytes(file.FullName));
             return tex;
         }
 

@@ -40,6 +40,17 @@
   <ItemGroup>
     <Compile Include="GameManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SettingsImpls\GameSettings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Icarus.Engine\Icarus.Engine.csproj">
+      <Project>{92af21fe-df63-46f2-acd9-5f4413513e3e}</Project>
+      <Name>Icarus.Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Icarus.Utilities\Icarus.Utilities.csproj">
+      <Project>{ee96b2d8-5d8b-46a9-a3f7-57238593aab5}</Project>
+      <Name>Icarus.Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

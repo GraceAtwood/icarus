@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,31 +14,39 @@ namespace Icarus.Engine.Framework.Serialization.Converters
     /// Loads an object from a file path.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class PathConverterBase<T> : JsonConverter<T> where T : class
+    public abstract class CacheablePathConverterBase<T> : JsonConverter<T> where T : class
     {
         private List<DirectoryInfo> SearchDirectories { get; }
-        
-        protected PathConverterBase(List<DirectoryInfo> searchDirectories)
+
+        private static ConcurrentDictionary<FileInfo, T> Cache { get; } = new ConcurrentDictionary<FileInfo, T>();
+
+        protected CacheablePathConverterBase(List<DirectoryInfo> searchDirectories)
         {
             SearchDirectories = searchDirectories;
         }
 
-        protected FileInfo FindFile(string path)
+        private FileInfo FindFile(string relativePath)
         {
             foreach (var searchDirectory in SearchDirectories)
             {
-                var candidatePath = Path.Combine(searchDirectory.FullName, path);
+                var candidatePath = Path.Combine(searchDirectory.FullName, relativePath);
                 if (File.Exists(candidatePath))
                     return new FileInfo(candidatePath);
             }
-
+            
             return null;
         }
 
         public override T ReadJson(JsonReader reader, Type objectType, T existingValue, bool hasExistingValue, JsonSerializer serializer)
         {
-            var path = reader.ReadAsString();
-            return ReadPath(path);
+            var relativePath = reader.ReadAsString();
+            return LoadWithCache(relativePath);
+        }
+
+        public T LoadWithCache(string relativePath)
+        {
+            var fullPath = FindFile(relativePath);
+            return Cache.GetOrAdd(fullPath, Load);
         }
 
         public override void WriteJson(JsonWriter writer, T value, JsonSerializer serializer)
@@ -48,8 +57,8 @@ namespace Icarus.Engine.Framework.Serialization.Converters
         /// <summary>
         /// Reads the path as <typeparamref name="T"/>.
         /// </summary>
-        /// <param name="path"></param>
+        /// <param name="file"></param>
         /// <returns></returns>
-        public abstract T ReadPath(string path);
+        protected abstract T Load(FileInfo file);
     }
 }

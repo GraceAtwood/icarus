@@ -58,10 +58,10 @@
     <Compile Include="Framework\Modding\ModInfo.cs" />
     <Compile Include="Framework\Modding\ModLoader.cs" />
     <Compile Include="Framework\Serialization\Converters\MeshPathConverter.cs" />
-    <Compile Include="Framework\Serialization\Converters\PathConverterBase.cs" />
+    <Compile Include="Framework\Serialization\Converters\CacheablePathConverterBase.cs" />
     <Compile Include="Framework\Serialization\Converters\Texture2DPathConverter.cs" />
     <Compile Include="Framework\Serialization\ObjImporter.cs" />
-    <Compile Include="Framework\Settings\SettingsBase.cs" />
+    <Compile Include="Framework\Settings\Settings.cs" />
     <Compile Include="Framework\Spawning\Spawn.cs" />
     <Compile Include="ITemplatable.cs" />
     <Compile Include="Models\IModel.cs" />
@@ -79,7 +79,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Universe" />
-    <Folder Include="Utilities" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Icarus.Utilities\Icarus.Utilities.csproj">
