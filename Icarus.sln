@@ -6,8 +6,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Icarus.Core", "Icarus.Core\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Icarus.Utilities", "Icarus.Utilities\Icarus.Utilities.csproj", "{EE96B2D8-5D8B-46A9-A3F7-57238593AAB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Icarus\Assembly-CSharp.csproj", "{767138A9-C833-DF0C-066B-88247836D97B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,9 +24,5 @@ Global
 		{EE96B2D8-5D8B-46A9-A3F7-57238593AAB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE96B2D8-5D8B-46A9-A3F7-57238593AAB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE96B2D8-5D8B-46A9-A3F7-57238593AAB5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{767138A9-C833-DF0C-066B-88247836D97B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{767138A9-C833-DF0C-066B-88247836D97B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{767138A9-C833-DF0C-066B-88247836D97B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{767138A9-C833-DF0C-066B-88247836D97B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
