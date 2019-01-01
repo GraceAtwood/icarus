@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace Icarus.Utilities
@@ -19,6 +21,26 @@ namespace Icarus.Utilities
                         return info.PropertyType;
                     default:
                         throw new ArgumentException("Input MemberInfo must be if type EventInfo, FieldInfo, MethodInfo, or PropertyInfo", nameof(member));
+            }
+        }
+
+        public static IEnumerable<Type> GetAllParentTypes(this Type type)
+        {
+            if (type == null)
+            {
+                yield break;
+            }
+
+            foreach (var i in type.GetInterfaces())
+            {
+                yield return i;
+            }
+
+            var currentBaseType = type.BaseType;
+            while (currentBaseType != null)
+            {
+                yield return currentBaseType;
+                currentBaseType= currentBaseType.BaseType;
             }
         }
     }

@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentScheduler, Version=5.3.0.0, Culture=neutral, PublicKeyToken=b76503528a14ebd1">
+      <HintPath>..\packages\FluentScheduler.5.3.0\lib\net40\FluentScheduler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -45,12 +49,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Framework\Exceptions\BlueprintNotFoundException.cs" />
     <Compile Include="Framework\Exceptions\IcarusException.cs" />
     <Compile Include="Framework\Exceptions\ModIncompatibleException.cs" />
     <Compile Include="Framework\ITemplateSpawnable.cs" />
     <Compile Include="Framework\Logging\ILogger.cs" />
     <Compile Include="Framework\Logging\Log.cs" />
-    <Compile Include="Framework\Logging\RollingFileLogger.cs" />
+    <Compile Include="Framework\Logging\FileLogger.cs" />
     <Compile Include="Framework\Logging\UnityLogger.cs" />
     <Compile Include="Framework\Modding\Blueprint.cs" />
     <Compile Include="Framework\Modding\BlueprintSourceInfo.cs" />
